@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  mdb:
+    image: mariadb
+    container_name: mdb
+    volumes:
+      - mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=Password123!
+    networks:
+      - muscolin
+    restart: always
+
+  api:
+    image: api
+    container_name: api
+    networks:
+      - muscolin
+    restart: always
+
+  web:
+    image: web
+    container_name: web
+    networks:
+      - muscolin
+    ports:
+    - "80:8000"
+    restart: always
+    
+networks:
+    muscolin:
+        name: muscolin
+        external: true
+
+volumes:
+    mariadb: 
+        external: true

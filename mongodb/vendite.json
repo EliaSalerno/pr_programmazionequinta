@@ -1,0 +1,523 @@
+[
+  {
+    "numeroOrdine": 1,
+    "data": "23/01/2023",
+    "negozio": "Milano",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "laptop",
+        "costo": 900,
+        "quantità": 10
+      }
+    ],
+    "email": "aaaaa@mail.it",
+    "indirizzo": "via Bianchi 5, Milano",
+    "telefoni": [
+      "02-7050342",
+      "333-123456",
+      "328-6773111"
+    ]
+  },
+  {
+    "numeroOrdine": 2,
+    "data": "04/12/2021",
+    "negozio": "Lecco",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "tablet",
+        "costo": 400,
+        "quantità": 1
+      }
+    ],
+    "email": "bbbbb@mail.it",
+    "indirizzo": "via Rossi 8, Lecco",
+    "telefoni": [
+      "0341-452312"
+    ]
+  },
+  {
+    "numeroOrdine": 3,
+    "data": "03/03/2022",
+    "negozio": "Milano",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "tablet",
+        "costo": 400,
+        "quantità": 4
+      }
+    ],
+    "email": "bbbbb@mail.it",
+    "indirizzo": "via Rossi 8, Lecco",
+    "telefoni": [
+      "0341-452312"
+    ]
+  },
+  {
+    "numeroOrdine": 4,
+    "data": "15/08/2021",
+    "negozio": "Roma",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "cartucce",
+        "costo": 20,
+        "quantità": 3
+      },
+      {
+        "articolo": "printer",
+        "costo": 250,
+        "quantità": 6
+      }
+    ],
+    "email": "ccccc@mail.it",
+    "indirizzo": "via Verdi 9, Roma",
+    "telefoni": [
+      "06-2211546",
+      "06-987236"
+    ]
+  },
+  {
+    "numeroOrdine": 5,
+    "data": "05/01/2023",
+    "negozio": "Lecco",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "laptop",
+        "costo": 900,
+        "quantità": 7
+      },
+      {
+        "articolo": "custodia",
+        "costo": 80,
+        "quantità": 7
+      }
+    ],
+    "email": "ccccc@mail.it",
+    "indirizzo": "via Verdi 9, Roma",
+    "telefoni": [
+      "06-2211546",
+      "06-987236"
+    ]
+  },
+  {
+    "numeroOrdine": 6,
+    "data": "25/12/2021",
+    "negozio": "Roma",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "cartucce",
+        "costo": 20,
+        "quantità": 2
+      },
+      {
+        "articolo": "printer",
+        "costo": 250,
+        "quantità": 9
+      }
+    ],
+    "email": "aaaaa@mail.it",
+    "indirizzo": "via Bianchi 5, Milano",
+    "telefoni": [
+      "02-7050342",
+      "333-123456",
+      "328-6773111"
+    ]
+  },
+  {
+    "numeroOrdine": 7,
+    "data": "05/09/2021",
+    "negozio": "Milano",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "tablet",
+        "costo": 400,
+        "quantità": 9
+      },
+      {
+        "articolo": "printer",
+        "costo": 250,
+        "quantità": 10
+      },
+      {
+        "articolo": "custodia",
+        "costo": 80,
+        "quantità": 10
+      },
+      {
+        "articolo": "laptop",
+        "costo": 900,
+        "quantità": 8
+      }
+    ],
+    "email": "ccccc@mail.it",
+    "indirizzo": "via Verdi 9, Roma",
+    "telefoni": [
+      "06-2211546",
+      "06-987236"
+    ]
+  },
+  {
+    "numeroOrdine": 8,
+    "data": "21/10/2021",
+    "negozio": "Roma",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "cartucce",
+        "costo": 20,
+        "quantità": 8
+      }
+    ],
+    "email": "bbbbb@mail.it",
+    "indirizzo": "via Rossi 8, Lecco",
+    "telefoni": [
+      "0341-452312"
+    ]
+  },
+  {
+    "numeroOrdine": 9,
+    "data": "20/10/2021",
+    "negozio": "Roma",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "laptop",
+        "costo": 900,
+        "quantità": 9
+      },
+      {
+        "articolo": "monitor",
+        "costo": 100,
+        "quantità": 2
+      }
+    ],
+    "email": "bbbbb@mail.it",
+    "indirizzo": "via Rossi 8, Lecco",
+    "telefoni": [
+      "0341-452312"
+    ]
+  },
+  {
+    "numeroOrdine": 10,
+    "data": "25/11/2022",
+    "negozio": "Lecco",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "cartucce",
+        "costo": 20,
+        "quantità": 10
+      }
+    ],
+    "email": "ccccc@mail.it",
+    "indirizzo": "via Verdi 9, Roma",
+    "telefoni": [
+      "06-2211546",
+      "06-987236"
+    ]
+  },
+  {
+    "numeroOrdine": 11,
+    "data": "09/01/2022",
+    "negozio": "Milano",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "tablet",
+        "costo": 400,
+        "quantità": 2
+      },
+      {
+        "articolo": "laptop",
+        "costo": 900,
+        "quantità": 4
+      },
+      {
+        "articolo": "custodia",
+        "costo": 80,
+        "quantità": 3
+      }
+    ],
+    "email": "aaaaa@mail.it",
+    "indirizzo": "via Bianchi 5, Milano",
+    "telefoni": [
+      "02-7050342",
+      "333-123456",
+      "328-6773111"
+    ]
+  },
+  {
+    "numeroOrdine": 12,
+    "data": "12/06/2022",
+    "negozio": "Roma",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "custodia",
+        "costo": 80,
+        "quantità": 4
+      }
+    ],
+    "email": "ccccc@mail.it",
+    "indirizzo": "via Verdi 9, Roma",
+    "telefoni": [
+      "06-2211546",
+      "06-987236"
+    ]
+  },
+  {
+    "numeroOrdine": 13,
+    "data": "06/09/2021",
+    "negozio": "Lecco",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "monitor",
+        "costo": 100,
+        "quantità": 2
+      },
+      {
+        "articolo": "tablet",
+        "costo": 400,
+        "quantità": 4
+      },
+      {
+        "articolo": "laptop",
+        "costo": 900,
+        "quantità": 4
+      },
+      {
+        "articolo": "custodia",
+        "costo": 80,
+        "quantità": 6
+      }
+    ],
+    "email": "bbbbb@mail.it",
+    "indirizzo": "via Rossi 8, Lecco",
+    "telefoni": [
+      "0341-452312"
+    ]
+  },
+  {
+    "numeroOrdine": 14,
+    "data": "04/07/2022",
+    "negozio": "Roma",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "printer",
+        "costo": 250,
+        "quantità": 3
+      }
+    ],
+    "email": "bbbbb@mail.it",
+    "indirizzo": "via Rossi 8, Lecco",
+    "telefoni": [
+      "0341-452312"
+    ]
+  },
+  {
+    "numeroOrdine": 15,
+    "data": "06/12/2021",
+    "negozio": "Milano",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "printer",
+        "costo": 250,
+        "quantità": 2
+      }
+    ],
+    "email": "bbbbb@mail.it",
+    "indirizzo": "via Rossi 8, Lecco",
+    "telefoni": [
+      "0341-452312"
+    ]
+  },
+  {
+    "numeroOrdine": 16,
+    "data": "11/07/2022",
+    "negozio": "Roma",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "tablet",
+        "costo": 400,
+        "quantità": 3
+      },
+      {
+        "articolo": "laptop",
+        "costo": 900,
+        "quantità": 4
+      },
+      {
+        "articolo": "monitor",
+        "costo": 100,
+        "quantità": 6
+      }
+    ],
+    "email": "ddddd.@mail.it",
+    "indirizzo": "via Neri 3, Firenze",
+    "telefoni": [
+      "055-370777"
+    ]
+  },
+  {
+    "numeroOrdine": 17,
+    "data": "11/10/2022",
+    "negozio": "Lecco",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "custodia",
+        "costo": 80,
+        "quantità": 5
+      }
+    ],
+    "email": "ddddd.@mail.it",
+    "indirizzo": "via Neri 3, Firenze",
+    "telefoni": [
+      "055-370777"
+    ]
+  },
+  {
+    "numeroOrdine": 18,
+    "data": "29/09/2022",
+    "negozio": "Lecco",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "cartucce",
+        "costo": 20,
+        "quantità": 2
+      }
+    ],
+    "email": "aaaaa@mail.it",
+    "indirizzo": "via Bianchi 5, Milano",
+    "telefoni": [
+      "02-7050342",
+      "333-123456",
+      "328-6773111"
+    ]
+  },
+  {
+    "numeroOrdine": 19,
+    "data": "19/12/2021",
+    "negozio": "Roma",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "monitor",
+        "costo": 100,
+        "quantità": 2
+      },
+      {
+        "articolo": "cartucce",
+        "costo": 20,
+        "quantità": 7
+      },
+      {
+        "articolo": "printer",
+        "costo": 250,
+        "quantità": 3
+      },
+      {
+        "articolo": "tablet",
+        "costo": 400,
+        "quantità": 9
+      },
+      {
+        "articolo": "laptop",
+        "costo": 900,
+        "quantità": 10
+      }
+    ],
+    "email": "ccccc@mail.it",
+    "indirizzo": "via Verdi 9, Roma",
+    "telefoni": [
+      "06-2211546",
+      "06-987236"
+    ]
+  },
+  {
+    "numeroOrdine": 20,
+    "data": "14/11/2021",
+    "negozio": "Milano",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "tablet",
+        "costo": 400,
+        "quantità": 2
+      }
+    ],
+    "email": "ddddd.@mail.it",
+    "indirizzo": "via Neri 3, Firenze",
+    "telefoni": [
+      "055-370777"
+    ]
+  },
+  {
+    "numeroOrdine": 21,
+    "data": "08/02/2022",
+    "negozio": "Firenze",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "printer",
+        "costo": 250,
+        "quantità": 3
+      }
+    ],
+    "email": "bbbbb@mail.it",
+    "indirizzo": "via Rossi 8, Lecco",
+    "telefoni": [
+      "0341-452312"
+    ]
+  },
+  {
+    "numeroOrdine": 22,
+    "data": "09/08/2021",
+    "negozio": "Milano",
+    "modalità": "online",
+    "articoli": [
+      {
+        "articolo": "monitor",
+        "costo": 100,
+        "quantità": 10
+      }
+    ],
+    "email": "ccccc@mail.it",
+    "indirizzo": "via Verdi 9, Roma",
+    "telefoni": [
+      "06-2211546",
+      "06-987236"
+    ]
+  },
+  {
+    "numeroOrdine": 23,
+    "data": "08/01/2022",
+    "negozio": "Firenze",
+    "modalità": "negozio",
+    "articoli": [
+      {
+        "articolo": "tablet",
+        "costo": 400,
+        "quantità": 2
+      }
+    ],
+    "email": "aaaaa@mail.it",
+    "indirizzo": "via Bianchi 5, Milano",
+    "telefoni": [
+      "02-7050342",
+      "333-123456",
+      "328-6773111"
+    ]
+  }
+]

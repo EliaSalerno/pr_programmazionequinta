@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3>Elenco dei corsi</h3>
+    {% for corso in elencoCorsi: %}
+        <li>{{ corso["titolo"] }}</li>
+    {% endfor %}
+</div>
+{% endblock %}
