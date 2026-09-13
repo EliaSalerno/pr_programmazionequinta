@@ -1,11 +1,11 @@
 # MATERIALE UTILE PER LA QUINTA
 
 <details>
- <summary> Virtualizzazione</summary>
+ <summary> UML Unified modeling language - Linguaggio di modellazione grafica unificato</summary>
   <table>
    <tr>
     <td>
-     <p>Qui trattiamo un argomento introduttivo per docker, l'obiettivo è anticipare la containerizzazione partendo prima dalla virtualizzazione</p>
+     <p>UML è un linguaggio di modellazione grafica standardizzato, usato principalmente nell'ingegneria del software per progettare, visualizzare e documentare sistemi software (ma anche processi aziendali o strutture organizzative). Non è un linguaggio di programmazione: non si "esegue", serve a rappresentare graficamente idee prima (o durante) la scrittura del codice.</p>
     </td>
     <td>
     </td>
