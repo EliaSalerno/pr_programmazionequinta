@@ -15,7 +15,15 @@
  <summary>Docker</summary>
   <table>
    <tr>
-    <td>Docker è una piattaforma open source che permette di raggruppare un'applicazione e tutte le sue dipendenze all'interno di ambienti isolati chiamati container</td>
+    <td><p>Docker è una piattaforma open source che permette di raggruppare un'applicazione e tutte le sue dipendenze all'interno di ambienti isolati chiamati container</p></td>
+   </tr>
+  </table>
+</details>
+<details>
+ <summary>GIT</summary>
+  <table>
+   <tr>
+    <td>Git è un sistema di controllo versione distribuito (DVCS) open source, creato nel 2005 da Linus Torvalds, progettato per gestire e tracciare le modifiche ai file di testo e al codice sorgente<td>
    </tr>
   </table>
 </details>
