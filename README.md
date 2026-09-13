@@ -11,3 +11,11 @@
     </td>
    </tr>
 </details>
+<details>
+ <summary>Docker</summary>
+  <table>
+   <tr>
+    <td>Docker è una piattaforma open source che permette di raggruppare un'applicazione e tutte le sue dipendenze all'interno di ambienti isolati chiamati container</td>
+   </tr>
+  </table>
+</details>
