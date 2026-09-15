@@ -1,6 +1,5 @@
 # Struttura, stile e comportamento
 
-
 ## Struttura (1-2 settimane)
 ### Modulo 0:
 - Strumenti: VS Code, estensione Live Server, DevTools del browser
