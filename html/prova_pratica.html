@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>La mia città</title>
+</head>
+<body lang="it" dir="ltr" bgcolor="#f0f0f0" text="navy" link="green" vlink="purple" title="Pagina di pratica HTML">
+
+<h1 id="inizio" title="Titolo della pagina" align="center">La mia città</h1>
+
+<p id="par1">
+Benvenuti nella pagina dedicata alla mia città. Qui troverete informazioni sui
+luoghi più belli da visitare, una classifica dei miei posti preferiti e
+qualche link utile. Questa pagina è scritta in HTML puro, senza CSS,
+per fare pratica con i tag e i loro attributi.
+</p>
+
+<p id="par2" contenteditable="true" title="Puoi modificare questo testo direttamente nel browser">
+Questo paragrafo è modificabile: clicca dentro e prova a cambiare il testo.
+Le modifiche non vengono salvate, ma è un buon modo per capire come funziona
+l'attributo contenteditable.
+</p>
+
+<p lang="en" hidden>
+This paragraph is hidden and written in English. You won't see it in the page,
+but it's here to test the "hidden" and "lang" attributes.
+</p>
+
+<h1 title="Indice della pagina" align="left">Indice</h1>
+
+<ol type="A" start="1">
+  <li><a href="#par1">Vai all'introduzione</a></li>
+  <li><a href="#luoghi">Vai ai luoghi da visitare</a></li>
+  <li><a href="#classifica">Vai alla classifica</a></li>
+  <li><a href="#immagine">Vai all'immagine</a></li>
+</ol>
+
+<h1 id="luoghi" title="Sezione luoghi">Luoghi da visitare</h1>
+
+<ul type="square">
+  <li data-categoria="monumento">
+    <a href="https://it.wikipedia.org/wiki/Duomo_di_Milano" target="_blank" rel="noopener noreferrer" title="Apri in una nuova scheda">
+      Il Duomo
+    </a>
+  </li>
+  <li data-categoria="parco">
+    <a href="https://it.wikipedia.org/wiki/Parco_Sempione" target="_blank" rel="noopener noreferrer" hreflang="it">
+      Il Parco Centrale
+    </a>
+  </li>
+  <li data-categoria="museo">
+    <a href="https://it.wikipedia.org/wiki/Museo" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">
+      Il Museo Civico
+    </a>
+    <ul type="circle">
+      <li>Aperto dal martedì alla domenica</li>
+      <li>Ingresso gratuito la prima domenica del mese</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="classifica" title="Sezione classifica" align="right">Classifica dei miei posti preferiti</h1>
+
+<ol type="I" reversed>
+  <li value="3">Il Duomo</li>
+  <li>Il Parco Centrale</li>
+  <li>Il Museo Civico</li>
+</ol>
+
+<h1 id="immagine" title="Sezione immagine">Un po' di immagini</h1>
+
+<p>
+Ecco una foto della piazza principale (il percorso dell'immagine è volutamente
+sbagliato, per vedere come si comporta l'attributo alt):
+</p>
+
+<img src="piazza-inesistente.jpg"
+     alt="Foto della piazza principale della città"
+     width="400"
+     height="250"
+     title="Piazza principale"
+     loading="lazy"
+     hspace="20"
+     vspace="10"
+     border="2"
+     align="left"
+     data-autore="Foto di prova">
+
+<p>
+E qui un'immagine cliccabile, che porta a un link esterno se ci clicchi sopra:
+</p>
+
+<a href="https://it.wikipedia.org/wiki/Milano" target="_blank" rel="noopener noreferrer">
+  <img src="altra-immagine-inesistente.jpg"
+       alt="Panorama della città"
+       width="300"
+       height="200"
+       title="Clicca per saperne di più">
+</a>
+
+<h1 title="Sezione contatti">Contatti</h1>
+
+<ul>
+  <li><a href="mailto:info@esempio.it" title="Scrivici una email">Scrivici una email</a></li>
+  <li><a href="tel:+390212345678" title="Chiamaci">Chiamaci</a></li>
+  <li><a href="brochure.pdf" download type="application/pdf" title="Scarica la brochure">Scarica la brochure (PDF)</a></li>
+</ul>
+
+<p align="justify" accesskey="p" tabindex="0">
+Grazie per aver visitato questa pagina di prova. È stata creata solo con i tag
+body, h1, p, a, img, ul, ol e li, senza usare CSS né JavaScript, per esercitarsi
+sugli attributi HTML.
+</p>
+
+<p><a href="#inizio" title="Torna all'inizio della pagina">Torna su</a></p>
+
+</body>
+</html>
