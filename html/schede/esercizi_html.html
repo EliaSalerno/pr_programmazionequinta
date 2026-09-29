@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scheda di esercitazione — HTML puro</title>
+<style>
+@page { size: A4; margin: 14mm 12mm; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  color: #111;
+  background: #e9e9e9;
+  margin: 0;
+}
+
+.foglio {
+  max-width: 186mm;
+  margin: 0 auto;
+  background: #fff;
+  padding: 14mm 12mm;
+  box-shadow: 0 0 6px rgba(0,0,0,.25);
+}
+
+/* ---------- testata ---------- */
+.testata { border-bottom: 2px solid #111; padding-bottom: 10px; margin-bottom: 12px; }
+.testata .scuola { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .1em; color: #666; }
+.testata h1 { font-size: 16pt; margin: 4px 0 6px; }
+.dati { display: flex; flex-wrap: wrap; gap: 18px; font-size: 9.5pt; color: #333; }
+.dati span { display: inline-block; border-bottom: 1px solid #999; min-width: 190px; padding: 0 4px 1px; }
+
+/* ---------- istruzioni ---------- */
+.istruzioni {
+  border: 1px solid #bbb;
+  background: #fafafa;
+  padding: 10px 12px;
+  font-size: 9.5pt;
+  margin-bottom: 16px;
+  break-inside: avoid;
+}
+.istruzioni p { margin: 0 0 5px; }
+.istruzioni ul { margin: 0; padding-left: 18px; }
+.istruzioni li { margin: 2px 0; }
+
+/* ---------- sezioni ---------- */
+h2.sezione {
+  font-size: 12.5pt;
+  margin: 0 0 2px;
+  padding: 6px 9px;
+  background: #111;
+  color: #fff;
+  border-radius: 3px;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+.tagset { font-size: 8.5pt; color: #555; margin: 0 0 12px; padding: 0 2px; }
+.nuova { break-before: page; page-break-before: always; }
+
+/* ---------- esercizi ---------- */
+.ex { break-inside: avoid; page-break-inside: avoid; margin: 0 0 13px; }
+.q { margin: 0 0 5px; font-weight: 600; }
+.num {
+  display: inline-block; min-width: 32px; text-align: center;
+  background: #111; color: #fff; border-radius: 3px;
+  font-size: 8.5pt; padding: 1px 5px; margin-right: 6px;
+}
+.liv { font-size: 7.5pt; text-transform: uppercase; letter-spacing: .06em; color: #fff; border-radius: 3px; padding: 2px 5px; margin-right: 6px; }
+.l1 { background: #2e7d32; }
+.l2 { background: #e07b00; }
+.l3 { background: #c62828; }
+.istruzione { font-weight: 400; color: #444; font-style: italic; }
+
+pre, code { font-family: "Cascadia Mono", Consolas, "Courier New", monospace; font-size: 9.5pt; }
+pre {
+  background: #f6f6f6; border: 1px solid #ddd; border-left: 3px solid #999;
+  padding: 7px 9px; margin: 6px 0;
+  white-space: pre-wrap; overflow-wrap: break-word; line-height: 1.5;
+}
+code { background: #ececec; border-radius: 2px; padding: 0 3px; }
+pre code { background: none; padding: 0; }
+
+/* righe su cui scrivere */
+.righe {
+  background: repeating-linear-gradient(to bottom, transparent 0 27px, #c9c9c9 27px 28px);
+  margin: 6px 0 0;
+}
+
+ol.opts { margin: 5px 0 0; padding-left: 22px; }
+ol.opts li { margin: 2px 0; }
+
+.note { font-size: 9pt; color: #555; margin: 10px 0 0; border-top: 1px solid #ddd; padding-top: 8px; }
+
+/* ---------- griglia finale ---------- */
+table.griglia { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 8px; }
+table.griglia th, table.griglia td { border: 1px solid #999; padding: 4px 6px; text-align: left; }
+table.griglia th { background: #eee; }
+
+@media print {
+  body { background: #fff; }
+  .foglio { max-width: none; margin: 0; padding: 0; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<div class="foglio">
+
+  <div class="testata">
+    <div class="scuola">Istituto &middot; Informatica &middot; A.S. 2025/2026</div>
+    <h1>Scheda di esercitazione &mdash; HTML puro</h1>
+    <div class="dati">
+      <span>Cognome e nome</span>
+      <span>Classe</span>
+      <span>Data</span>
+    </div>
+  </div>
+
+  <div class="istruzioni">
+    <p><strong>Come si lavora.</strong> Per ogni esercizio scrivi il codice HTML richiesto nello spazio a righe. Non usare il computer: qui si tratta di sapere scrivere i tag, non di digitare velocemente.</p>
+    <ul>
+      <li>Le richieste sono brevi e indipendenti: ogni riga ha un numero progressivo (es. <code>A3</code> = terzo esercizio della sezione A).</li>
+      <li>Le difficoltà sono indicate dai tre livelli: <span class="liv l1">base</span> <span class="liv l2">medio</span> <span class="liv l3">avanzato</span></li>
+      <li>Nei quesiti a risposta multipla scrivi la <strong>lettera</strong> e, se vuoi, la frase che hai scelto.</li>
+      <li>La correzione si fa insieme in aula: segna con una <strong>X</strong> ogni esercizio che hai sbagliato.</li>
+    </ul>
+  </div>
+
+  <!-- ================= SEZIONE A ================= -->
+  <h2 class="sezione">Sezione A &mdash; La struttura del documento</h2>
+  <p class="tagset">Tag: <code>&lt;!DOCTYPE html&gt;</code> &middot; <code>&lt;html&gt;</code> &middot; <code>&lt;head&gt;</code> &middot; <code>&lt;title&gt;</code> &middot; <code>&lt;body&gt;</code></p>
+
+  <div class="ex">
+    <p class="q"><span class="num">A1</span> <span class="liv l1">base</span> Qual è la prima riga che deve comparire in un qualsiasi file HTML5, prima di qualunque altro elemento? Ricopiala esatta.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">A2</span> <span class="liv l1">base</span> Scrivi lo scheletro completo di una pagina web vuota: dichiarazione del tipo di documento, elemento radice con lingua italiana, intestazione con codifica dei caratteri UTF-8 e titolo della pagina.</p>
+    <div class="righe" style="height:140px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">A3</span> <span class="liv l1">base</span> Completa i tre buchi.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html ____="it"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;____&gt;Cucina di Bianchi&lt;/____&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Benvenuti!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">A4</span> <span class="liv l1">base</span> Il testo racchiuso tra <code>&lt;title&gt;</code> e <code>&lt;/title&gt;</code> compare:</p>
+    <ol class="opts">
+      <li>come titolo grande, in cima alla pagina</li>
+      <li>nella barra del browser, nella scheda della finestra e nei segnalibri</li>
+      <li>in fondo alla pagina</li>
+      <li>non compare da nessuna parte: serve solo a chi legge il codice</li>
+    </ol>
+    <div class="righe" style="height:28px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">A5</span> <span class="liv l2">medio</span> Solo <strong>un</strong> elemento è collocato nel posto sbagliato. Individualo, spiega perché non può stare lì e riscrivi il file corretto.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;La mia pagina&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;h1&gt;Ciao a tutti&lt;/h1&gt;
+  &lt;body&gt;
+    &lt;p&gt;Questo è un paragrafo.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <div class="righe" style="height:112px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">A6</span> <span class="liv l2">medio</span> A cosa serve l'attributo <code>lang</code> sull'elemento <code>&lt;html&gt;</code>? Spiega che cosa cambia se manca, sia per chi usa uno screen reader sia per un motore di ricerca.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <!-- ================= SEZIONE B ================= -->
+  <h2 class="sezione nuova">Sezione B &mdash; Paragrafi e separatori</h2>
+  <p class="tagset">Tag: <code>&lt;p&gt;</code> &middot; <code>&lt;br&gt;</code> &middot; <code>&lt;hr&gt;</code></p>
+
+  <div class="ex">
+    <p class="q"><span class="num">B1</span> <span class="liv l1">base</span> Scrivi il codice di due paragrafi di testo, ciascuno su una riga di codice separata.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">B2</span> <span class="liv l1">base</span> Riscrivi in codice il testo qui sotto, rispettando tre richieste: il testo è diviso in <strong>due paragrafi</strong>; il primo deve andare a capo subito dopo la parola <em>primo</em>; tra i due paragrafi deve comparire una linea orizzontale.</p>
+<pre><code>Primo paragrafo
+Secondo paragrafo</code></pre>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">B3</span> <span class="liv l1">base</span> Che cosa produce esattamente questo codice?</p>
+<pre><code>&lt;p&gt;Uno&lt;br&gt;Due&lt;/p&gt;</code></pre>
+    <ol class="opts">
+      <li>due paragrafi distinti, uno sotto l'altro</li>
+      <li>un solo paragrafo, con un andata a capo interno</li>
+      <li>due paragrafi separati da una linea orizzontale</li>
+      <li>un errore di sintassi: <code>&lt;br&gt;</code> non si può usare dentro <code>&lt;p&gt;</code></li>
+    </ol>
+    <div class="righe" style="height:28px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">B4</span> <span class="liv l2">medio</span> Questo codice contiene <strong>due errori</strong>. Individuali e riscrivi la versione corretta che, a video, mostra due punti elenco.</p>
+<pre><code>&lt;ul&gt;
+  &lt;p&gt;Faretto acceso&lt;/p&gt;
+  &lt;p&gt;Padella già scaldata&lt;/p&gt;
+&lt;/ul&gt;</code></pre>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">B5</span> <span class="liv l2">medio</span> Perché <code>&lt;hr&gt;</code> non ha bisogno di una barra di chiusura <code>&lt;/hr&gt;</code>, mentre <code>&lt;p&gt;</code> sì?</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <!-- ================= SEZIONE C ================= -->
+  <h2 class="sezione nuova">Sezione C &mdash; Enfasi, significato, stile</h2>
+  <p class="tagset">Tag: <code>&lt;strong&gt;</code> &middot; <code>&lt;em&gt;</code> &middot; <code>&lt;b&gt;</code> &middot; <code>&lt;i&gt;</code></p>
+
+  <div class="ex">
+    <p class="q"><span class="num">C1</span> <span class="liv l1">base</span> Il titolo di una notizia dice: <em>Il servizio è stato sospeso per manutenzione.</em> Metti in evidenza la parola <em>sospeso</em> perché è l'informazione più importante per il lettore. Scrivi il codice.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">C2</span> <span class="liv l1">base</span> Nel titolo <em>Ho finalmente capito, dice l'allievo</em> l'autore sta ironizzando sulla parola <em>capito</em>. Quale tag usi? Perché la scelta è diversa da quella del punto C1?</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">C3</span> <span class="liv l2">medio</span> Qual è la differenza fra <code>&lt;b&gt;</code> e <code>&lt;strong&gt;</code>?</p>
+    <ol class="opts">
+      <li><code>&lt;b&gt;</code> non esiste: esiste solo <code>&lt;bold&gt;</code></li>
+      <li><code>&lt;b&gt;</code> dice soltanto &laquo;rendilo grassetto&raquo;, <code>&lt;strong&gt;</code> dice &laquo;questo è importante&raquo;</li>
+      <li>sono sinonimi esatti e si possono scambiare ovunque</li>
+      <li><code>&lt;strong&gt;</code> si può usare solo dentro i titoli</li>
+    </ol>
+    <div class="righe" style="height:28px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">C4</span> <span class="liv l2">medio</span> Nella frase <em>La password è <strong>segreta</strong>.</em> che informazione dà al browser la scelta di <code>&lt;strong&gt;</code> rispetto a <code>&lt;b&gt;</code>? A cosa può servire in concreto?</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <!-- ================= SEZIONE D ================= -->
+  <h2 class="sezione nuova">Sezione D &mdash; Titoli e gerarchia</h2>
+  <p class="tagset">Tag: <code>&lt;h1&gt;</code> &middot; <code>&lt;h2&gt;</code> &middot; <code>&lt;h3&gt;</code> &middot; <code>&lt;h4&gt;</code> &middot; <code>&lt;h5&gt;</code> &middot; <code>&lt;h6&gt;</code></p>
+
+  <div class="ex">
+    <p class="q"><span class="num">D1</span> <span class="liv l1">base</span> Scrivi un titolo di <strong>primo</strong> livello con il testo <em>Panificio Verdi</em> e, subito sotto, un titolo di <strong>secondo</strong> livello con il testo <em>Prodotti senza glutine</em>.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">D2</span> <span class="liv l1">base</span> Una pagina web può contenere due titoli <code>&lt;h1&gt;</code>?</p>
+    <ol class="opts">
+      <li>sì, quanti se ne vogliono</li>
+      <li>sì, ma è buona pratica usarne uno solo e poi scendere di livello con <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>…</li>
+      <li>no, mai: il browser ne ammette al massimo uno</li>
+      <li>sì, ma solo se il testo è identico</li>
+    </ol>
+    <div class="righe" style="height:28px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">D3</span> <span class="liv l2">medio</span> Questa è la gerarchia dei titoli di una pagina di ristorante. C'è un errore di logica: si salta un livello di heads. Correggi la sequenza.</p>
+<pre><code>&lt;h1&gt;Il nostro menù&lt;/h1&gt;
+&lt;h3&gt;Primi piatti&lt;/h3&gt;
+&lt;h2&gt;Dolci&lt;/h2&gt;
+&lt;h3&gt;Crostata della nonna&lt;/h3&gt;</code></pre>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">D4</span> <span class="liv l2">medio</span> I titoli non servono soltanto a scegliere la dimensione del testo: i motori di ricerca e gli screen reader li usano per ricostruire la struttura della pagina. Spiega che cosa succede se, invece di un <code>&lt;h2&gt;</code>, scrivo un paragrafo con dentro il CSS che lo fa sembrare un titolo.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <!-- ================= SEZIONE E ================= -->
+  <h2 class="sezione nuova">Sezione E &mdash; Liste</h2>
+  <p class="tagset">Tag: <code>&lt;ul&gt;</code> &middot; <code>&lt;ol&gt;</code> &middot; <code>&lt;li&gt;</code> &middot; liste annidate</p>
+
+  <div class="ex">
+    <p class="q"><span class="num">E1</span> <span class="liv l1">base</span> Scrivi una lista <strong>non ordinata</strong> con tre voci: <em>Pane</em>, <em>Pecorino</em>, <em>Pomodori</em>.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">E2</span> <span class="liv l1">base</span> Scrivi una lista <strong>ordinata</strong> con i tre passaggi di una ricetta: <em>Preriscalda il forno</em>, <em>Impasta gli ingredienti</em>, <em>Cuoci per 20 minuti</em>.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">E3</span> <span class="liv l2">medio</span> A video questo codice <strong>non</strong> mostra una lista con due punti elenco. Spiega che cosa c'è di sbagliato e riscrivi la versione corretta.</p>
+<pre><code>&lt;ul&gt;
+  &lt;p&gt;Faretto acceso&lt;/p&gt;
+  &lt;p&gt;Padella già scaldata&lt;/p&gt;
+&lt;/ul&gt;</code></pre>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">E4</span> <span class="liv l2">medio</span> Scrivi una lista <strong>non ordinata</strong> con due voci: <em>Frutta</em> e <em>Verdura</em>. Sotto <em>Frutta</em> devono comparire due sotto-voci: <em>Mele</em> e <em>Pere</em>. Attenzione: la sotto-lista va <strong>dentro</strong> la voce a cui appartiene, non come voce a sé.</p>
+    <div class="righe" style="height:112px"></div>
+  </div>
+
+  <!-- ================= SEZIONE F ================= -->
+  <h2 class="sezione nuova">Sezione F &mdash; Link e immagini</h2>
+  <p class="tagset">Tag: <code>&lt;a&gt;</code> &middot; <code>&lt;img&gt;</code></p>
+
+  <div class="ex">
+    <p class="q"><span class="num">F1</span> <span class="liv l1">base</span> Scrivi un link con testo <em>Sito del W3C</em> verso <code>https://www.w3.org</code>.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">F2</span> <span class="liv l1">base</span> Inserisci l'immagine del file <code>panificio.jpg</code> con il testo alternativo <em>Il banco del panificio</em>.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">F3</span> <span class="liv l2">medio</span> Ora il link parte da un'immagine: cliccando sull'immagine <code>logo.png</code> (testo alternativo: <em>Logo del sito</em>) si deve arrivare a <code>https://www.example.com</code>, aprendo una nuova scheda. Scrivi il codice.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">F4</span> <span class="liv l2">medio</span> Che cosa succede se un'immagine non si carica e l'attributo <code>alt</code> è vuoto o assente? Perché chiediamo sempre di riempirlo?</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <!-- ================= SEZIONE G ================= -->
+  <h2 class="sezione nuova">Sezione G &mdash; Contenitori e sezioni</h2>
+  <p class="tagset">Tag: <code>&lt;div&gt;</code> &middot; <code>&lt;span&gt;</code> &middot; <code>&lt;main&gt;</code> &middot; <code>&lt;section&gt;</code> &middot; <code>&lt;article&gt;</code> &middot; <code>&lt;nav&gt;</code> &middot; <code>&lt;footer&gt;</code></p>
+
+  <div class="ex">
+    <p class="q"><span class="num">G1</span> <span class="liv l1">base</span> Crea una <code>&lt;div&gt;</code> che contenga la parola <em>offerta</em> e, al suo interno, uno <code>&lt;span&gt;</code> con la parola <em>speciale</em>. La <code>&lt;div&gt;</code> e lo <code>&lt;span&gt;</code> devono stare su due righe di codice diverse.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">G2</span> <span class="liv l2">medio</span> In questo codice un elemento viene usato solo per applicare una riga di stile a un frammento di testo. Qual è il tag sbagliato e quale andrebbe usato al suo posto? Perché?</p>
+<pre><code>&lt;div style="color: red;"&gt;Testo importante&lt;/div&gt;</code></pre>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">G3</span> <span class="liv l2">medio</span> Scrivi la struttura semantica di una pagina di notizie, in quest'ordine: la <strong>barra di navigazione</strong>, il <strong>contenuto principale</strong>, un <strong>articolo</strong> con dentro un titolo e una riga di testo, il <strong>piè di pagina</strong> con i contatti.</p>
+    <div class="righe" style="height:140px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">G4</span> <span class="liv l2">medio</span> In quale elemento va il contenuto principale della pagina, cioè l'unico argomento di cui si occupa il sito?</p>
+    <ol class="opts">
+      <li><code>&lt;header&gt;</code></li>
+      <li><code>&lt;main&gt;</code></li>
+      <li><code>&lt;footer&gt;</code></li>
+      <li><code>&lt;nav&gt;</code></li>
+    </ol>
+    <div class="righe" style="height:28px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">G5</span> <span class="liv l3">avanzato</span> A video <code>&lt;div&gt;</code> e <code>&lt;section&gt;</code> sembrano identici. Qual è la differenza? E tra <code>&lt;article&gt;</code> e <code>&lt;section&gt;</code>?</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <!-- ================= SEZIONE H ================= -->
+  <h2 class="sezione nuova">Sezione H &mdash; Contenuti accessori</h2>
+  <p class="tagset">Tag: <code>&lt;details&gt;</code> &middot; <code>&lt;figure&gt;</code> &middot; <code>&lt;figcaption&gt;</code> &middot; <code>&lt;time&gt;</code></p>
+
+  <div class="ex">
+    <p class="q"><span class="num">H1</span> <span class="liv l2">medio</span> Crea un riquadro espandibile: il titolo visibile è <em>Orari di apertura</em>; cliccandolo si rivela il testo <em>Lun&ndash;Ven 8:30&ndash;19:00</em>; quando il riquadro è chiuso, il testo non si vede affatto.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">H2</span> <span class="liv l2">medio</span> Inserisci la foto <code>muffin.jpg</code> con la didascalia <em>Muffin ai mirtilli</em>, usando il contenitore giusto per un'immagine con didascalia.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">H3</span> <span class="liv l2">medio</span> Scrivi la data <em>12 marzo 2026</em> con l'elemento apposito, indicando anche la data nel formato ISO.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">H4</span> <span class="liv l3">avanzato</span> Perché la didascalia si mette dentro <code>&lt;figure&gt;</code> e non dentro una semplice <code>&lt;div&gt;</code>? Che cosa fa in più <code>&lt;figure&gt;</code>?</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <!-- ================= SEZIONE I ================= -->
+  <h2 class="sezione nuova">Sezione I &mdash; Moduli e controlli</h2>
+  <p class="tagset">Tag: <code>&lt;form&gt;</code> &middot; <code>&lt;input&gt;</code> &middot; <code>&lt;button&gt;</code></p>
+
+  <div class="ex">
+    <p class="q"><span class="num">I1</span> <span class="liv l1">base</span> Crea un modulo che invia i dati con metodo <code>POST</code> all'indirizzo <code>/iscriviti</code>, contenente due campi di testo: nome ed email.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">I2</span> <span class="liv l2">medio</span> Nel modulo di prima: il campo <strong>email</strong> è obbligatorio e deve accettare soltanto un indirizzo email valido; il campo <strong>password</strong> deve avere almeno 8 caratteri. Riscrivi i due campi con gli attributi necessari.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">I3</span> <span class="liv l2">medio</span> Aggiungi al modulo una casella di spunta con l'etichetta <em>Accetto l'informativa privacy</em>, che si debba poter inviare il modulo soltanto se è spuntata, e il pulsante di invio con testo <em>Iscriviti</em>.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">I4</span> <span class="liv l3">avanzato</span> Perché l'attributo <code>name</code> su un campo di un modulo è indispensabile, mentre l'attributo <code>id</code> serve a uno scopo diverso? Spiega i due ruoli e ricorda a cosa serve <code>&lt;label&gt;</code>.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <!-- ================= SEZIONE J ================= -->
+  <h2 class="sezione nuova">Sezione J &mdash; Contenuti multimediali</h2>
+  <p class="tagset">Tag: <code>&lt;video&gt;</code> &middot; <code>&lt;audio&gt;</code> &middot; <code>&lt;source&gt;</code> &middot; <code>&lt;iframe&gt;</code></p>
+
+  <div class="ex">
+    <p class="q"><span class="num">J1</span> <span class="liv l1">base</span> Inserisci il video locale <code>presentazione.mp4</code>, con i controlli di riproduzione disponibili e le dimensioni 640&times;360 pixel.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">J2</span> <span class="liv l2">medio</span> Non tutti i browser leggono il formato MP4. Riscrivi il codice del punto J1 aggiungendo il file <code>presentazione.webm</code> come alternativa, mantenendo lo stesso testo alternativo.</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">J3</span> <span class="liv l1">base</span> Inserisci un brano audio <code>canzone.mp3</code> con i controlli di riproduzione.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">J4</span> <span class="liv l2">medio</span> Questo codice non funziona in nessun browser. C'è un errore grave e una scritta fuori posto. Individuali entrambi e riscrivi il codice corretto.</p>
+<pre><code>&lt;video src="presentazione.mp4" controls width="640" /&gt;
+Il tuo browser non supporta i video.</code></pre>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">J5</span> <span class="liv l2">medio</span> Inserisci la pagina <code>https://www.example.com/mappa</code> dentro un riquadro <code>iframe</code> largo 600 e alto 400 pixel, con un testo alternativo per chi non riesce a visualizzarlo.</p>
+    <div class="righe" style="height:56px"></div>
+  </div>
+
+  <div class="ex">
+    <p class="q"><span class="num">J6</span> <span class="liv l3">avanzato</span> Se scrivo l'indirizzo del file direttamente nell'attributo <code>src</code> di <code>&lt;video&gt;</code>, che cosa succede in un browser che non supporta quel formato? Che cosa risolve <code>&lt;source&gt;</code>? E se <strong>nessuno</strong> dei due formati è supportato?</p>
+    <div class="righe" style="height:84px"></div>
+  </div>
+
+  <!-- ================= griglia finale ================= -->
+  <h2 class="sezione nuova">Griglia di verifica personale</h2>
+  <p class="tagset">Compila questa tabella alla fine della correzione: è il tuo piano di ripasso per la prossima lezione.</p>
+  <table class="griglia">
+    <tr>
+      <th style="width:34%">Sezione</th>
+      <th style="width:44%">Argomenti</th>
+      <th style="width:22%">Come è andata</th>
+    </tr>
+    <tr><td>A</td><td>doctype, html, head, title, body</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+    <tr><td>B</td><td>p, br, hr</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+    <tr><td>C</td><td>strong, em, b, i</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+    <tr><td>D</td><td>h1 &hellip; h6, gerarchia dei titoli</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+    <tr><td>E</td><td>ul, ol, li, liste annidate</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+    <tr><td>F</td><td>a, img</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+    <tr><td>G</td><td>div, span, main, section, article, nav, footer</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+    <tr><td>H</td><td>details, figure, figcaption, time</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+    <tr><td>I</td><td>form, input, button</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+    <tr><td>J</td><td>video, audio, source, iframe</td><td>&#9744; ho capito &nbsp; &#9744; da rivedere</td></tr>
+  </table>
+
+  <p class="note"><strong>Nota.</strong> Queste risposte scritte a mano non bastano a provare che la pagina funzioni. A casa, prima della verifica, scegli cinque esercizi di questa scheda, scrivili in un file <code>.html</code> e controllali: aprili con Live Server e verificali con il validatore del W3C (<code>validator.w3.org</code>). Un tag che a video funziona ma che il validatore segnala come errato è comunque un errore.</p>
+
+</div>
+</body>
+</html>

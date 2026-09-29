@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it">
+<head><meta charset="UTF-8"><title>Risultato</title></head>
+<body>
+  <h2>Metodo usato: {{ metodo }}</h2>
+  <p><strong>URL della richiesta:</strong> {{ url }}</p>
+
+  <h3>Dati ricevuti:</h3>
+  <ul>
+    {% for chiave, valore in dati.items() %}
+      <li>{{ chiave }} = {{ valore }}</li>
+    {% endfor %}
+  </ul>
+
+  <a href="/">Torna al form</a>
+</body>
+</html>

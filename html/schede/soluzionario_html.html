@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soluzionario — Scheda di esercitazione HTML puro</title>
+<style>
+@page { size: A4; margin: 14mm 12mm; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  color: #111;
+  background: #e9e9e9;
+  margin: 0;
+}
+
+.foglio {
+  max-width: 186mm;
+  margin: 0 auto;
+  background: #fff;
+  padding: 14mm 12mm;
+  box-shadow: 0 0 6px rgba(0,0,0,.25);
+}
+
+.testata { border-bottom: 2px solid #111; padding-bottom: 10px; margin-bottom: 12px; }
+.testata .scuola { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .1em; color: #666; }
+.testata h1 { font-size: 16pt; margin: 4px 0 6px; }
+
+.avviso {
+  border: 1px solid #c62828;
+  border-left: 4px solid #c62828;
+  background: #fff5f5;
+  padding: 9px 12px;
+  font-size: 9.5pt;
+  margin-bottom: 16px;
+  break-inside: avoid;
+}
+
+h2.sezione {
+  font-size: 12.5pt;
+  margin: 0 0 2px;
+  padding: 6px 9px;
+  background: #111;
+  color: #fff;
+  border-radius: 3px;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+.tagset { font-size: 8.5pt; color: #555; margin: 0 0 12px; padding: 0 2px; }
+.nuova { break-before: page; page-break-before: always; }
+
+.sol { break-inside: avoid; page-break-inside: avoid; margin: 0 0 15px; padding-left: 2px; }
+.num {
+  display: inline-block; min-width: 32px; text-align: center;
+  background: #1b5e20; color: #fff; border-radius: 3px;
+  font-size: 8.5pt; padding: 1px 5px; margin-right: 6px;
+  font-weight: 700;
+}
+.domanda { font-weight: 600; margin: 0 0 5px; }
+
+pre, code { font-family: "Cascadia Mono", Consolas, "Courier New", monospace; font-size: 9.5pt; }
+pre {
+  background: #f2f7f2; border: 1px solid #cfe0cf; border-left: 3px solid #1b5e20;
+  padding: 7px 9px; margin: 6px 0;
+  white-space: pre-wrap; overflow-wrap: break-word; line-height: 1.5;
+}
+code { background: #ececec; border-radius: 2px; padding: 0 3px; }
+pre code { background: none; padding: 0; }
+
+ol.opts { margin: 5px 0 0; padding-left: 22px; }
+ol.opts li { margin: 2px 0; }
+.ok { font-weight: 700; color: #1b5e20; }
+
+.nota {
+  font-size: 9pt;
+  color: #444;
+  background: #fafafa;
+  border-left: 3px solid #999;
+  padding: 5px 8px;
+  margin: 6px 0 0;
+}
+.nota b { color: #111; }
+.acc { font-size: 9pt; color: #555; margin: 4px 0 0; }
+.acc b { color: #111; }
+
+@media print {
+  body { background: #fff; }
+  .foglio { max-width: none; margin: 0; padding: 0; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<div class="foglio">
+
+  <div class="testata">
+    <div class="scuola">Documento riservato al docente</div>
+    <h1>Soluzionario &mdash; Scheda di esercitazione HTML puro</h1>
+  </div>
+
+  <div class="avviso">
+    <strong>Come usare questo documento.</strong> Ogni risposta è una delle forme accettate, non l'unica possibile. Nelle correzioni a orali: se lo studente scrive un codice diverso ma funziona e sa spiegare <em>perché</em> ha scelto quel tag, la risposta è da considerare corretta. Le righe marcate <strong>Nota</strong> sono quelle su cui fermarsi: indicano il concetto, non la sintassi.
+  </div>
+
+  <!-- ================= SEZIONE A ================= -->
+  <h2 class="sezione">Sezione A &mdash; La struttura del documento</h2>
+  <p class="tagset">Tag: <code>&lt;!DOCTYPE html&gt;</code> &middot; <code>&lt;html&gt;</code> &middot; <code>&lt;head&gt;</code> &middot; <code>&lt;title&gt;</code> &middot; <code>&lt;body&gt;</code></p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">A1</span> La prima riga di un file HTML5.</p>
+<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+    <p class="nota"><b>Nota.</b> Non è un tag: è una dichiarazione. Si scrive <b>prima di qualsiasi altra cosa</b>, senza slash finale. In HTML i nomi dei tag e degli attributi non distinguono mai maiuscole da minuscole: <code>&lt;!doctype html&gt;</code> è valido. Errore tipico: metterla dentro <code>&lt;head&gt;</code> o dopo <code>&lt;html&gt;</code>. Serve a far entrare il browser in modalità &laquo;standard&raquo; invece della modalità &laquo;quirks&raquo; del vecchio HTML 4.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">A2</span> Scheletro completo di una pagina vuota.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="it"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;La mia pagina&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <p class="nota"><b>Nota.</b> <code>head</code> contiene i metadati (non il contenuto visibile), <code>body</code> contiene tutto ciò che il visitatore vedr&agrave;. L'indentazione non &egrave; obbligatoria ma va usata per rendere il codice leggibile.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">A3</span> I tre buchi.</p>
+<pre><code>&lt;html lang="it"&gt;
+  &lt;title&gt;Cucina di Bianchi&lt;/title&gt;</code></pre>
+    <p class="acc"><b>Da segnalare come errore:</b> <code>&lt;html it="it"&gt;</code> (l'attributo si chiama <code>lang</code>, non <code>it</code>) e <code>&lt;titolo&gt;</code> (non esiste: si chiama <code>title</code>).</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">A4</span> Dove compare il contenuto di <code>&lt;title&gt;</code>.</p>
+    <p><span class="ok">Risposta corretta: 2</span> &mdash; nella barra del browser, nella scheda della finestra, nei segnalibri e nei risultati dei motori di ricerca.</p>
+    <p class="nota"><b>Da chiarire in aula.</b> L'errore pi&ugrave; diffuso &egrave; la 1: si scrive <code>&lt;title&gt;</code> al posto di <code>&lt;h1&gt;</code> e ci si aspetta un titolo visibile in pagina. Il titolo <em>visibile</em> &egrave; un <code>&lt;h1&gt;</code> dentro il <code>&lt;body&gt;</code>: le due cose hanno funzioni diverse e non si sostituiscono.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">A5</span> L'elemento collocato nel posto sbagliato.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="it"&gt;
+  &lt;head&gt;
+    &lt;title&gt;La mia pagina&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Ciao a tutti&lt;/h1&gt;
+    &lt;p&gt;Questo è un paragrafo.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <p class="nota"><b>Nota.</b> L'errore non &egrave; che <code>&lt;h1&gt;</code> sia sbagliato: &egrave; che sta <b>fuori dal <code>&lt;body&gt;</code></b>, fra <code>&lt;head&gt;</code> e <code>&lt;body&gt;</code>. Fra la testa e il corpo non pu&ograve; esistere nulla. Il browser, per r&egrave; di compatibilit&agrave;, sposta comunque il contenuto dentro il body e la pagina finisce per sembrare corretta: &egrave; proprio questo il motivo per cui l'errore passa inosservato. Chi lo nota grazie alla sola lettura del codice ha capito il punto.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">A6</span> A cosa serve <code>lang</code>.</p>
+    <p class="nota"><b>Risposta attesa (sintesi).</b> <code>lang</code> dichiara in che lingua &egrave; scritto il contenuto della pagina. Vale per l'intero documento.</p>
+    <ul>
+      <li><strong>Screen reader:</strong> pronunciano correttamente il testo e scelgono la voce giusta. Con una lingua dichiarata in modo sbagliato, un testo italiano letto con regole fonetiche inglesi diventa incomprensibile.</li>
+      <li><strong>Motori di ricerca:</strong> servono a capire in che lingua indicizzare la pagina e a proporre le correzioni automatiche giuste.</li>
+      <li><strong>Traduttori automatici:</strong> offrono di tradurre la pagina solo se la lingua &egrave; dichiarata.</li>
+    </ul>
+    <p class="acc"><b>Punto da esplicitare:</b> se manca, il browser <em>indovina</em>: sbaglia con le pagine brevi, con le frasi in inglese dentro un testo italiano, con i nomi propri.</p>
+  </div>
+
+  <!-- ================= SEZIONE B ================= -->
+  <h2 class="sezione nuova">Sezione B &mdash; Paragrafi e separatori</h2>
+  <p class="tagset">Tag: <code>&lt;p&gt;</code> &middot; <code>&lt;br&gt;</code> &middot; <code>&lt;hr&gt;</code></p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">B1</span> Due paragrafi.</p>
+<pre><code>&lt;p&gt;Primo paragrafo.&lt;/p&gt;
+&lt;p&gt;Secondo paragrafo.&lt;/p&gt;</code></pre>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">B2</span> Due paragrafi, un a capo interno, una linea orizzontale.</p>
+<pre><code>&lt;p&gt;Primo paragrafo&lt;br&gt;
+Secondo paragrafo&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Terzo paragrafo&lt;/p&gt;</code></pre>
+    <p class="acc"><b>Accettato anche:</b> <code>&lt;br&gt;</code> pu&ograve; stare all'inizio della seconda riga, il risultato &egrave; identico. Errore da segnalare: usare due <code>&lt;br&gt;</code> consecutivi per "fare piu spazio": &egrave; una cattiva abitudine, lo spazio si gestisce con il margine del paragrafo.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">B3</span> Che cosa produce <code>&lt;p&gt;Uno&lt;br&gt;Due&lt;/p&gt;</code>.</p>
+    <p><span class="ok">Risposta corretta: 2</span> &mdash; un solo paragrafo, con un andata a capo interno.</p>
+    <p class="nota"><b>Da chiarire in aula.</b> Il punto chiave &egrave; che c'&egrave; un solo blocco di testo: il salto di riga &egrave; <em>dentro</em> il paragrafo. Con due <code>&lt;p&gt;</code> ci sarebbe stato un margine &mdash; e quello &egrave; l'unico modo per ottenere uno stacco reale fra due blocchi. &Egrave; la distinzione fra <code>&lt;br&gt;</code> (a capo) e fine paragrafo (nuovo blocco con spaziatura).</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">B4</span> I due errori.</p>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Faretto acceso&lt;/li&gt;
+  &lt;li&gt;Padella già scaldata&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    <p class="nota"><b>I due errori.</b> 1) dentro <code>&lt;ul&gt;</code> si inseriscono solo elementi <code>&lt;li&gt;</code>, non <code>&lt;p&gt;</code>; 2) manca del tutto la chiusura <code>&lt;/li&gt;</code>. Il primo &egrave; l'errore che vale la pena fermarsi a spiegare: i punti elenco compaiono solo se gli elementi figli sono <code>&lt;li&gt;</code>, e in quel caso il contenuto del <code>&lt;p&gt;</code> viene comunque mostrato &mdash; per questo il file "sembra funzionare" pur non essendo corretto.</p>
+    <p class="acc"><b>Punto accessorio.</b> Il tag <code>&lt;li&gt;</code> pu&ograve; essere chiuso esplicitamente (<code>&lt;li&gt;...&lt;/li&gt;</code>) oppure no, dato che la sua chiusura &egrave; facoltativa. &Egrave; buona norma scriverla.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">B5</span> Perch&eacute; <code>&lt;hr&gt;</code> non si chiude e <code>&lt;p&gt;</code> s&igrave;.</p>
+    <p class="nota"><b>Risposta attesa.</b> <code>&lt;hr&gt;</code> &egrave; un <b>elemento vuoto</b>: non ha contenuto, serve solo a introdurre il proprio, quindi non può avere figli e non ammette tag di chiusura. <code>&lt;p&gt;</code> invece &egrave; un elemento con contenuto e ha quindi bisogno del proprio tag di chiusura. Gli elementi vuoti si ricordano: <code>img</code>, <code>br</code>, <code>hr</code>, <code>input</code>, <code>meta</code>, <code>source</code>, <code>link</code>.</p>
+  </div>
+
+  <!-- ================= SEZIONE C ================= -->
+  <h2 class="sezione nuova">Sezione C &mdash; Enfasi, significato, stile</h2>
+  <p class="tagset">Tag: <code>&lt;strong&gt;</code> &middot; <code>&lt;em&gt;</code> &middot; <code>&lt;b&gt;</code> &middot; <code>&lt;i&gt;</code></p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">C1</span> Importanza, non stile.</p>
+<pre><code>&lt;p&gt;Il servizio &lt;strong&gt;sospeso&lt;/strong&gt; per manutenzione.&lt;/p&gt;</code></pre>
+    <p class="nota"><b>Da chiarire in aula.</b> Il testo "da mettere in evidenza" &egrave; ambiguo: se l'esercizio chiede di <em>insistere</em> sull'informazione si usa <code>&lt;strong&gt;</code>; se chiede di <em>insistere visivamente</em> si potrebbe usare <code>&lt;b&gt;</code>. In questo contesto (notizia, parola chiave) la risposta &egrave; <code>&lt;strong&gt;</code>.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">C2</span> Ironia, non importanza.</p>
+<pre><code>&lt;p&gt;Ho finalmente &lt;em&gt;capito&lt;/em&gt;, dice l'allievo.&lt;/p&gt;</code></pre>
+    <p class="acc"><b>Accettato anche:</b> <code>&lt;i&gt;</code>, se lo studente sa spiegare che indica "parola non letterale". In entrambi i casi l'attributo <code>lang</code> non serve qui; se l'ironia fosse su una lingua diversa si scriverebbe <code>&lt;em lang="..."&gt;</code>.</p>
+    <p class="nota"><b>La differenza chiave.</b> <code>&lt;em&gt;</code> (e <code>&lt;i&gt;</code>) segnalano un significato particolare &mdash; enfasi, ironia, nome proprio straniero, termine tecnico. <code>&lt;strong&gt;</code> e <code>&lt;b&gt;</code> segnalano importanza o grassetto. Visivamente <code>&lt;em&gt;</code> d&agrave; il corsivo e <code>&lt;strong&gt;</code> il grassetto, ma il criterio non &egrave; grafico: &egrave; <b>semantico</b>.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">C3</span> Differenza fra <code>&lt;b&gt;</code> e <code>&lt;strong&gt;</code>.</p>
+    <p><span class="ok">Risposta corretta: 2</span></p>
+    <p class="nota"><b>Da chiarire in aula.</b> Il punto da fissare: <code>&lt;b&gt;</code> dice "rendimi grassetto" (aspetto), <code>&lt;strong&gt;</code> dice "questo &egrave; importante" (significato). Oggi <code>&lt;b&gt;</code> non ha pi&ugrave; alcuna funzione semantica riconosciuta: &egrave; rimasto solo per compatibilit&agrave;. Per questo le due cose non sono sinonimi e non si scambiano.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">C4</span> Che cosa comunica <code>&lt;strong&gt;</code>.</p>
+    <p class="nota"><b>Risposta attesa.</b> Che la parte &laquo;segreta&raquo; non &egrave; una semplice descrizione: &egrave; il punto su cui il lettore deve concentrarsi. In concreto gli screen reader possono dare maggiore peso a quel passaggio, e i motori di ricerca ne traggono un'informazione sulla rilevanza del termine. Con <code>&lt;b&gt;</code> il browser saprebbe solo che la parola va resa in grassetto, senza dire nulla sul contenuto.</p>
+  </div>
+
+  <!-- ================= SEZIONE D ================= -->
+  <h2 class="sezione nuova">Sezione D &mdash; Titoli e gerarchia</h2>
+  <p class="tagset">Tag: <code>&lt;h1&gt;</code> &middot; <code>&lt;h2&gt;</code> &middot; <code>&lt;h3&gt;</code> &middot; <code>&lt;h4&gt;</code> &middot; <code>&lt;h5&gt;</code> &middot; <code>&lt;h6&gt;</code></p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">D1</span> Due livelli di titolo.</p>
+<pre><code>&lt;h1&gt;Panificio Verdi&lt;/h1&gt;
+&lt;h2&gt;Prodotti senza glutine&lt;/h2&gt;</code></pre>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">D2</span> Due <code>&lt;h1&gt;</code> nella stessa pagina.</p>
+    <p><span class="ok">Risposta corretta: 2</span></p>
+    <p class="nota"><b>Da chiarire in aula.</b> Il punto non &egrave; che il browser lo vieti, ma che la gerarchia sia un segnale di struttura. Risposta da accettare come <em>incompleta</em>: &laquo;s&igrave;, quanti se ne vogliono&raquo; &mdash; tecnicamente vero, ma non distingue la buona pratica. <code>&lt;h1&gt;</code> = argomento della pagina; <code>&lt;h2&gt;</code> = sezione; <code>&lt;h3&gt;</code> = sottosezione, e cos&igrave; via fino a <code>&lt;h6&gt;</code>.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">D3</span> La gerarchia da correggere.</p>
+<pre><code>&lt;h1&gt;Il nostro menù&lt;/h1&gt;
+&lt;h2&gt;Primi piatti&lt;/h2&gt;
+&lt;h2&gt;Dolci&lt;/h2&gt;
+&lt;h3&gt;Crostata della nonna&lt;/h3&gt;</code></pre>
+    <p class="nota"><b>L'errore.</b> &laquo;Primi piatti&raquo; era un <code>&lt;h3&gt;</code> senza che esistesse un <code>&lt;h2&gt;</code> che lo contenesse: si saltava un livello. Le categorie (<em>Primi piatti</em>, <em>Dolci</em>) sono sorelle fra loro, quindi stesso livello; la <em>Crostata</em> sta dentro <em>Dolci</em>, quindi un livello sotto. Principio: si scende di un livello alla volta e si sale soltanto quando si torna al contenitore precedente.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">D4</span> Titolo finto con il CSS.</p>
+    <p class="nota"><b>Risposta attesa.</b> Con un <code>&lt;p&gt;</code> reso grande e grassetto dal foglio di stile si ottiene esattamente l'<em>aspetto</em> di un titolo, ma l'elemento continua a essere un paragrafo. Ne segue che:</p>
+    <ul>
+      <li>lo screen reader non lo annuncia come intestazione e non permette di saltare da una sezione all'altra con i tasti di navigazione;</li>
+      <li>il motore di ricerca non lo tratta come intestazione: per capire di che cosa parla l'articolo si basa proprio sui <code>&lt;h1&gt;&ndash;&lt;h6&gt;</code>;</li>
+      <li>la struttura del documento risulta piatta: tutto &egrave; "paragrafo", quindi le sezioni non esistono a livello di documento.</li>
+    </ul>
+    <p class="acc"><b>Punto da esplicitare.</b> &laquo;Come si fa&raquo; e &laquo;che cosa significa&raquo; sono due domande diverse. Il CSS decide l'aspetto, il tag decide il significato: sono due cose che si scelgono separatamente e non si sostituiscono.</p>
+  </div>
+
+  <!-- ================= SEZIONE E ================= -->
+  <h2 class="sezione nuova">Sezione E &mdash; Liste</h2>
+  <p class="tagset">Tag: <code>&lt;ul&gt;</code> &middot; <code>&lt;ol&gt;</code> &middot; <code>&lt;li&gt;</code> &middot; liste annidate</p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">E1</span> Lista non ordinata.</p>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Pane&lt;/li&gt;
+  &lt;li&gt;Pecorino&lt;/li&gt;
+  &lt;li&gt;Pomodori&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">E2</span> Lista ordinata.</p>
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;Preriscalda il forno&lt;/li&gt;
+  &lt;li&gt;Impasta gli ingredienti&lt;/li&gt;
+  &lt;li&gt;Cuoci per 20 minuti&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    <p class="acc"><b>Accettato anche:</b> <code>&lt;ol start="1"&gt;</code> &egrave; ridondante ma non sbagliato. <code>start</code>, <code>reversed</code> e <code>type</code> si possono citare come approfondimento.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">E3</span> Perch&eacute; non compare la lista.</p>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Faretto acceso&lt;/li&gt;
+  &lt;li&gt;Padella già scaldata&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    <p class="nota"><b>Il problema.</b> Gli elementi direttamente contenuti in <code>&lt;ul&gt;</code> devono essere <code>&lt;li&gt;</code>. Usando <code>&lt;p&gt;</code> non viene generato alcun punto elenco, e inoltre il documento non &egrave; valido. Il testo resta visibile, il che rende l'errore subdolo: si vede il risultato e non si vede il difetto.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">E4</span> Lista annidata.</p>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Frutta
+    &lt;ul&gt;
+      &lt;li&gt;Mele&lt;/li&gt;
+      &lt;li&gt;Pere&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Verdura&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    <p class="nota"><b>L'errore tipico da intercettare.</b> Scrivere la sotto-lista come <code>&lt;li&gt;</code> sorella di <code>Frutta</code> invece che al suo interno. Le parentesi devono chiudersi in ordine: si apre <code>&lt;li&gt;Frutta</code>, si apre la sotto-lista, la si chiude, e solo dopo si chiude <code>&lt;li&gt;Frutta</code>.</p>
+  </div>
+
+  <!-- ================= SEZIONE F ================= -->
+  <h2 class="sezione nuova">Sezione F &mdash; Link e immagini</h2>
+  <p class="tagset">Tag: <code>&lt;a&gt;</code> &middot; <code>&lt;img&gt;</code></p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">F1</span> Link di testo.</p>
+<pre><code>&lt;a href="https://www.w3.org"&gt;Sito del W3C&lt;/a&gt;</code></pre>
+    <p class="acc"><b>Accettato anche:</b> <code>https://www.w3.org/</code> con la barra finale.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">F2</span> Immagine con testo alternativo.</p>
+<pre><code>&lt;img src="panificio.jpg" alt="Il banco del panificio"&gt;</code></pre>
+    <p class="nota"><b>Due punti da segnalare.</b> 1) <code>&lt;img&gt;</code> &egrave; un elemento vuoto: niente <code>&lt;/img&gt;</code>. 2) Il percorso <code>src</code> pu&ograve; essere solo il nome del file se il file sta nella stessa cartella della pagina; con <code>img/foto/panificio.jpg</code> si sale di due livelli.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">F3</span> Immagine cliccabile.</p>
+<pre><code>&lt;a href="https://www.example.com" target="_blank" rel="noopener"&gt;
+  &lt;img src="logo.png" alt="Logo del sito"&gt;
+&lt;/a&gt;</code></pre>
+    <p class="nota"><b>Da chiarire in aula.</b> Si mette l'immagine <em>dentro</em> il link, non il contrario: &egrave; l'<code>&lt;a&gt;</code> che d&agrave; il comportamento di navigazione. <code>rel="noopener"</code> impedisce che la nuova scheda possa raggiungere la pagina di partenza: buona pratica di sicurezza da citare insieme a <code>target="_blank"</code>. Se si richiede il collegamento all'immagine si pu&ograve; anche usare <code>width</code>/<code>height</code> per evitarne il saltellamento durante il caricamento.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">F4</span> Immagine non caricata e <code>alt</code>.</p>
+    <p class="nota"><b>Risposta attesa.</b> Se <code>alt</code> &egrave; presente, il browser lo mostra al posto dell'immagine e lo screen reader lo legge al posto di questa. Se &egrave; vuoto, l'immagine viene semplicemente ignorata: utile per le immagini puramente decorative, errore grave per un'immagine che porta informazione. Se manca del tutto, l'utente non sa che l&igrave; c'era qualcosa.</p>
+    <p class="acc"><b>Punto da esplicitare.</b> L'alt non &egrave; una descrizione artistica: deve dire <em>che cosa</em> mostra o <em>a che cosa serve</em> l'immagine. "Foto 1" non serve a niente.</p>
+  </div>
+
+  <!-- ================= SEZIONE G ================= -->
+  <h2 class="sezione nuova">Sezione G &mdash; Contenitori e sezioni</h2>
+  <p class="tagset">Tag: <code>&lt;div&gt;</code> &middot; <code>&lt;span&gt;</code> &middot; <code>&lt;main&gt;</code> &middot; <code>&lt;section&gt;</code> &middot; <code>&lt;article&gt;</code> &middot; <code>&lt;nav&gt;</code> &middot; <code>&lt;footer&gt;</code></p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">G1</span> <code>&lt;div&gt;</code> con uno <code>&lt;span&gt;</code> dentro.</p>
+<pre><code>&lt;div&gt;offerta
+  &lt;span&gt;speciale&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+    <p class="acc"><b>Accettato anche:</b> il testo tutto su una riga, <code>&lt;div&gt;offerta &lt;span&gt;speciale&lt;/span&gt;&lt;/div&gt;</code>. L'esercizio chiedeva due righe diverse solo per non scrivere tutto in orizzontale.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">G2</span> Il tag sbagliato per una riga di stile.</p>
+<pre><code>&lt;span style="color: red;"&gt;Testo importante&lt;/span&gt;</code></pre>
+    <p class="nota"><b>Perch&eacute;.</b> <code>&lt;span&gt;</code> serve per <em>innestare</em> un elemento inline dentro un altro senza aggiungere blocchi al documento. <code>&lt;div&gt;</code> &egrave; un contenitore <b>di blocco</b>: mettendolo in mezzo a un testo ne spezza il flusso e gli applica un comportamento da contenitore. <code>&lt;div&gt;</code> si usa per raggruppare e organizzare sezioni della pagina, non per colorare una parola.</p>
+    <p class="acc"><b>Da segnalare come errore grave:</b> mettere stili inline cos&igrave; (il CSS va in un foglio di stile esterno). Ecco perch&eacute; l'esercizio usa la <code>&lt;div&gt;</code>: l'attrito didattico serve a far notare che <code>style</code> esiste, cos&igrave; da rendersi conto che l'uso giusto &egrave; un file a parte.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">G3</span> Struttura semantica di una pagina di notizie.</p>
+<pre><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/sport"&gt;Sport&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h1&gt;La notizia del giorno&lt;/h1&gt;
+    &lt;p&gt;Il testo dell'articolo.&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;Contatti: redazione@example.com&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+    <p class="acc"><b>Accettato anche:</b> <code>&lt;header&gt;</code> attorno a <code>&lt;nav&gt;</code> (cosa consigliata), un solo <code>&lt;a&gt;</code> dentro il <code>&lt;nav&gt;</code> invece di una lista, <code>&lt;address&gt;</code> per i contatti. Non richiedere una &eacute; identica a questa: si valuta la presenza e l'ordine dei quattro contenitori, non la scelta dei link.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">G4</span> Il contenuto principale della pagina.</p>
+    <p><span class="ok">Risposta corretta: 2</span> &mdash; <code>&lt;main&gt;</code>.</p>
+    <p class="nota"><b>Da chiarire in aula.</b> In una pagina ce n'&egrave; uno solo e racchiude l'argomento unico del sito: &egrave; ci&ograve; che salta a chi cerca il contenuto principale. <code>&lt;nav&gt;</code> &egrave; la navigazione fra le sezioni, <code>&lt;header&gt;</code> e <code>&lt;footer&gt;</code> si ripetono in ogni pagina e servono a orientarsi, non a contenere il tema.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">G5</span> Le differenze che non si vedono.</p>
+    <p class="nota"><b><code>&lt;div&gt;</code> vs <code>&lt;section&gt;</code>.</b> <code>&lt;div&gt;</code> &egrave; il contenitore <b>neutro</b>: non significa niente, serve solo a raggruprare e ad applicare stili. <code>&lt;section&gt;</code> dichiara che l&igrave; &egrave; una <b>sezione tematica</b> della pagina: se ha un titolo (<code>&lt;h2&gt;</code>), quel titolo descrive l'intera sezione e pu&ograve; essere usato per generare l'indice del documento.</p>
+    <p class="nota"><b><code>&lt;article&gt;</code> vs <code>&lt;section&gt;</code>.</b> <code>&lt;article&gt;</code> &egrave; un blocco di contenuto che ha senso anche da solo, se lo si copia altrove: un articolo di giornale, una scheda prodotto, un commento. <code>&lt;section&gt;</code> &egrave; un raggruppamento <em>di parti</em> di una stessa pagina, che perde senso se lo si estrae. Regola pratica: se pu&ograve; essere riletto da solo &rarr; <code>&lt;article&gt;</code>; se ha senso solo in quella pagina &rarr; <code>&lt;section&gt;</code>.</p>
+  </div>
+
+  <!-- ================= SEZIONE H ================= -->
+  <h2 class="sezione nuova">Sezione H &mdash; Contenuti accessori</h2>
+  <p class="tagset">Tag: <code>&lt;details&gt;</code> &middot; <code>&lt;figure&gt;</code> &middot; <code>&lt;figcaption&gt;</code> &middot; <code>&lt;time&gt;</code></p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">H1</span> Riquadro espandibile.</p>
+<pre><code>&lt;details&gt;
+  &lt;summary&gt;Orari di apertura&lt;/summary&gt;
+  &lt;p&gt;Lun&ndash;Ven 8:30&ndash;19:00&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+    <p class="nota"><b>Da chiarire in aula.</b> Il testo del riquadro &egrave; il contenuto di <code>&lt;summary&gt;</code>, ed &egrave; l'unica parte sempre visibile; tutto il resto compare e scompare al clic. <code>&lt;details&gt;</code> &egrave; chiuso per impostazione predefinita: per aprirlo all'avvio si aggiunge l'attributo <code>open</code>. Si usa per informazioni accessorie (dettagli tecnici, domande frequenti, note a margine), non per nascondre contenuto essenziale.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">H2</span> Immagine con didascalia.</p>
+<pre><code>&lt;figure&gt;
+  &lt;img src="muffin.jpg" alt="Muffin ai mirtilli"&gt;
+  &lt;figcaption&gt;Muffin ai mirtilli&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+    <p class="acc"><b>Nota.</b> <code>&lt;figcaption&gt;</code> pu&ograve; stare prima o dopo l'immagine: entrambe le posizioni sono valide. Se la didascalia ripete esattamente l'alt, si pu&ograve; lasciare l'alt pi&ugrave; breve (&laquo;Muffin&raquo;) per non far leggere due volte la stessa frase allo screen reader.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">H3</span> Data con l'elemento <code>&lt;time&gt;</code>.</p>
+<pre><code>&lt;time datetime="2026-03-12"&gt;12 marzo 2026&lt;/time&gt;</code></pre>
+    <p class="nota"><b>Da chiarire in aula.</b> Tra il testo visibile e il valore in <code>datetime</code> si pu&ograve; scrivere la data in qualsiasi formato, perch&eacute; a schermo si vede solo il testo dentro il tag. &Egrave; l'attributo <code>datetime</code> che rende la data leggibile dalle macchine: ricerca, prenotazioni, ordinamenti automatici, sitemap. Formato ISO completo: <code>2026-03-12</code>.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">H4</span> Perch&eacute; <code>&lt;figure&gt;</code> e non <code>&lt;div&gt;</code>.</p>
+    <p class="nota"><b>Risposta attesa.</b> <code>&lt;figure&gt;</code> &egrave; il contenitore pensato per un contenuto auto-contenuto e riferito al testo circostante: un'immagine, un diagramma, un codice, una citazione. I due vantaggi concreti sono che:</p>
+    <ul>
+      <li>ammette al massimo una <code>&lt;figcaption&gt;</code>, cio&egrave; pu&ograve; esserci <b>una e una sola</b> didascalia, collegata semanticamente al contenuto;</li>
+      <li>restando <code>&lt;div&gt;</code>, la didascalia sarebbe solo una riga di testo accanto all'immagine: nulla direbbe che la descrive. Lo screen reader la leggerebbe come un paragrafo indipendente, e i motori di ricerca non avrebbero modo di capire che quell'immagine ha una didascalia.</li>
+    </ul>
+  </div>
+
+  <!-- ================= SEZIONE I ================= -->
+  <h2 class="sezione nuova">Sezione I &mdash; Moduli e controlli</h2>
+  <p class="tagset">Tag: <code>&lt;form&gt;</code> &middot; <code>&lt;input&gt;</code> &middot; <code>&lt;button&gt;</code></p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">I1</span> Modulo con due campi di testo.</p>
+<pre><code>&lt;form action="/iscriviti" method="POST"&gt;
+  &lt;input type="text" id="nome" name="nome"&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+&lt;/form&gt;</code></pre>
+  <p class="acc"><b>Accettato anche:</b> <code>type="text"</code> su entrambi i campi (tipo predefinito), oppure <code>name="nome_cognome"</code> per un unico campo. Se lo studente ha aggiunto le <code>&lt;label&gt;</code>, bonus.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">I2</span> Vincoli di validazione.</p>
+<pre><code>&lt;input type="email" id="email" name="email" required&gt;
+&lt;input type="password" id="password" name="password" minlength="8" required&gt;</code></pre>
+    <p class="nota"><b>Da chiarire in aula.</b> <code>type="email"</code> fa gi&agrave; il controllo di formato, ma solo se il campo &egrave; compilato: da solo non rende obbligatorio, serve anche <code>required</code>. <code>minlength="8"</code> vale solo se il campo non &egrave; vuoto. Con <code>pattern</code> si poteva scrivere <code>pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"</code> come alternativa esplicita.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">I3</span> Casella di spunta e pulsante.</p>
+<pre><code>&lt;label for="privacy"&gt;Accetto l'informativa privacy&lt;/label&gt;
+&lt;input type="checkbox" id="privacy" name="privacy" value="si" required&gt;
+
+&lt;button type="submit"&gt;Iscriviti&lt;/button&gt;</code></pre>
+    <p class="nota"><b>Da chiarire in aula.</b> L'attributo <code>required</code> su un <code>checkbox</code> impone che la casella sia spuntata. La <code>&lt;label&gt;</code> con <code>for="privacy"</code> collegata all'<code>id</code> &egrave; ci&ograve; che rende cliccabile anche il testo. Su <code>&lt;button&gt;</code>: &egrave; preferibile a <code>&lt;input type="submit"&gt;</code> perch&eacute; pu&ograve; contenere testo formattato; l'attributo <code>type="submit"</code> &egrave; il comportamento predefinito, quindi esplicitarlo &egrave; buona norma.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">I4</span> I due ruoli di <code>name</code> e <code>id</code>.</p>
+    <p class="nota"><b><code>name</code> &mdash; il nome del dato.</b> &Egrave; l'attributo che viene spedito al server: il server riceve coppie <em>name = valore</em>. Se manca, il campo non viene inviato e il dato si perde, anche se lo studente lo ha compilato. <code>id</code> non c'entra con l'invio.</p>
+    <p class="nota"><b><code>id</code> &mdash; l'identificativo unico nella pagina.</b> Serve a due cose: a collegare la <code>&lt;label&gt;</code> al campo (<code>for="..."</code>) e a puntare a quell'elemento dal CSS o da JavaScript. Deve essere unico: due <code>id</code> uguali rendono il documento non valido.</p>
+    <p class="nota"><b><code>&lt;label&gt;</code> &mdash; l'etichetta del campo.</b> Unisce testo e campo in un'unica etichetta cliccabile, fa leggere correttamente il campo agli screen reader e, cliccando, porta il cursore dentro. Senza, l'utente vede una casella vuota e non sa cosa scriverci.</p>
+    <p class="acc"><b>Da aggiungere, se c'&egrave; tempo.</b> <code>id</code> pu&ograve; essere omesso se la <code>&lt;label&gt;</code> avvolge il campo (<code>&lt;label&gt;Nome &lt;input name="nome"&gt;&lt;/label&gt;</code>), ma in quel caso non si pu&ograve; puntare al campo con il CSS. In questo esercizio l'id serve, quindi va scritto.</p>
+  </div>
+
+  <!-- ================= SEZIONE J ================= -->
+  <h2 class="sezione nuova">Sezione J &mdash; Contenuti multimediali</h2>
+  <p class="tagset">Tag: <code>&lt;video&gt;</code> &middot; <code>&lt;audio&gt;</code> &middot; <code>&lt;source&gt;</code> &middot; <code>&lt;iframe&gt;</code></p>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">J1</span> Video con controlli e dimensioni.</p>
+<pre><code>&lt;video src="presentazione.mp4" controls width="640" height="360"&gt;
+&lt;/video&gt;</code></pre>
+    <p class="acc"><b>Accettato anche:</b> <code>width="640"</code> da solo, che di per s&eacute; conserva il rapporto proporzionale. <code>controls</code> &egrave; obbligatorio: senza, l'utente non pu&ograve; avviare il video.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">J2</span> Formato alternativo con <code>&lt;source&gt;</code>.</p>
+<pre><code>&lt;video controls width="640" height="360"&gt;
+  &lt;source src="presentazione.mp4" type="video/mp4"&gt;
+  &lt;source src="presentazione.webm" type="video/webm"&gt;
+  Il tuo browser non supporta la riproduzione di video.
+&lt;/video&gt;</code></pre>
+    <p class="nota"><b>Da chiarire in aula.</b> Le due condizioni da dire ad alta voce: 1) usando <code>&lt;source&gt;</code> l'attributo <code>src</code> sparisce da <code>&lt;video&gt;</code>; 2) il testo alternativo va <b>dentro</b> <code>&lt;video&gt;</code>, dopo i <code>&lt;source&gt;</code>, e compare solo se nessun formato va. L'attributo <code>type</code> permette al browser di saltare subito i formati che non supporta, senza scaricarli.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">J3</span> Audio con controlli.</p>
+<pre><code>&lt;audio src="canzone.mp3" controls&gt;
+&lt;/audio&gt;</code></pre>
+    <p class="acc"><b>Accettato anche:</b> la versione con <code>&lt;source&gt;</code> dell'esercizio J2, adattata a <code>type="audio/mpeg"</code>.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">J4</span> Gli errori da correggere.</p>
+<pre><code>&lt;video src="presentazione.mp4" controls width="640"&gt;
+  Il tuo browser non supporta i video.
+&lt;/video&gt;</code></pre>
+    <p class="nota"><b>Errore 1 &mdash; la barra finale.</b> <code>&lt;video&gt;</code> non &egrave; un elemento vuoto: ha contenuto, quindi si chiude con <code>&lt;/video&gt;</code>. Con la forma <code>&lt;video ... /&gt;</code> il browser ignora quel tag, non crea il player e ingoia tutto il resto della pagina fino a trovare un elemento di chiusura.</p>
+    <p class="nota"><b>Errore 2 &mdash; il testo fuori dal contenitore.</b> Il messaggio per chi non pu&ograve; vedere il video va <b>dentro</b> <code>&lt;video&gt;</code>. Se resta fuori, compare come testo normale nella pagina accanto al player, anche a chi il video l'ha visto: la condizione "&egrave; dentro l'elemento" &egrave; esattamente ci&ograve; che fa scattare la visualizzazione del messaggio.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">J5</span> Contenuto esterno in un <code>&lt;iframe&gt;</code>.</p>
+<pre><code>&lt;iframe src="https://www.example.com/mappa"
+        width="600" height="400"
+        title="Mappa della sede"&gt;
+&lt;/iframe&gt;</code></pre>
+    <p class="nota"><b>Da chiarire in aula.</b> In HTML5 il contenuto di <code>&lt;iframe&gt;</code> non si mette come testo alternativo tra i tag: si usa l'attributo <code>title</code>, che &egrave; l'etichetta accessibile del riquadro. Alcuni browser accettano ancora <code>alt</code> come attributo non standard, ma non &egrave; la risposta attesa. <code>width</code> e <code>height</code> possono essere in pixel; &egrave; indicato accettare anche i valori in percentuale.</p>
+  </div>
+
+  <div class="sol">
+    <p class="domanda"><span class="num">J6</span> Perch&eacute; <code>&lt;source&gt;</code> e non <code>src</code>.</p>
+    <p class="nota"><b>1. Che cosa succede con il solo <code>src</code>.</b> Il browser tenta di riprodurre quel file e basta. Se non ne riconosce il formato, la riproduzione si blocca e l'utente vede un riquadro vuoto: non ha modo di sapere che il video esiste.</p>
+    <p class="nota"><b>2. Che cosa risolve <code>&lt;source&gt;</code>.</b> Si dichiarano pi&ugrave; formati dello stesso contenuto e il browser sceglie il primo che &egrave; in grado di riprodurre. Ogni riga pu&ograve; anche specificare il <code>type</code>, cos&igrave; il browser scarta subito i formati incompatibili senza scaricarli.</p>
+    <p class="nota"><b>3. Se nessun formato &egrave; supportato.</b> Compaiono i <code>&lt;source&gt;</code> saltati e il browser mostra il testo di fallback scritto dentro <code>&lt;video&gt;</code> (o dentro <code>&lt;audio&gt;</code>). &Egrave; l'unico modo per dire all'utente che il contenuto esiste e non &egrave; disponibile sul suo dispositivo &mdash; da qui l'obbligo di scriverlo sempre.</p>
+  </div>
+
+</div>
+</body>
+</html>

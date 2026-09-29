@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Form GET vs POST</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border: 1px solid #ccc; padding: .5rem; text-align: left; }
+    th { background: #f0f0f0; }
+    code { background: #f4f4f4; padding: 0 .3rem; }
+    .box { border: 1px solid #ccc; border-radius: 6px; padding: 1rem; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+
+  <h1>I metodi GET e POST</h1>
+  <p>
+    Quando invii un form, il browser manda una richiesta HTTP al server.
+    L'attributo <code>method</code> del form decide <strong>come</strong> vengono
+    trasportati i dati inseriti dall'utente. I due metodi più usati sono GET e POST.
+  </p>
+
+  <h2>Metodo GET</h2>
+  <p>
+    I dati vengono aggiunti alla fine dell'URL, dopo il carattere <code>?</code>,
+    nel formato <code>chiave=valore</code> separati da <code>&amp;</code>.
+    Esempio: <code>/risultato_get?nome=Mario&amp;password=1234</code>
+  </p>
+  <ul>
+    <li>I dati sono <strong>visibili</strong> nella barra degli indirizzi e restano nella cronologia.</li>
+    <li>La pagina si può salvare tra i preferiti o condividere come link.</li>
+    <li>Ha un limite di lunghezza (l'URL non può essere infinito).</li>
+    <li>Si usa per richieste che <em>leggono</em> dati: ricerche, filtri, paginazione.</li>
+  </ul>
+
+  <h2>Metodo POST</h2>
+  <p>
+    I dati vengono inseriti nel <strong>corpo</strong> della richiesta, quindi
+    non compaiono nell'URL.
+  </p>
+  <ul>
+    <li>I dati <strong>non</strong> sono visibili nella barra degli indirizzi.</li>
+    <li>Non ci sono limiti pratici di dimensione (utile anche per invio di file).</li>
+    <li>Ricaricando la pagina il browser chiede conferma per reinviare i dati.</li>
+    <li>Si usa per richieste che <em>modificano</em> dati: login, registrazioni, inserimenti.</li>
+  </ul>
+
+  <h2>Confronto</h2>
+  <table>
+    <tr><th></th><th>GET</th><th>POST</th></tr>
+    <tr><td>Dove viaggiano i dati</td><td>Nell'URL</td><td>Nel corpo della richiesta</td></tr>
+    <tr><td>Visibilità</td><td>Visibili a tutti</td><td>Non nell'URL</td></tr>
+    <tr><td>Limite di dimensione</td><td>Sì</td><td>No</td></tr>
+    <tr><td>Link condivisibile</td><td>Sì</td><td>No</td></tr>
+    <tr><td>Uso tipico</td><td>Ricerche, filtri</td><td>Login, inserimento dati</td></tr>
+    <tr><td>Lettura in Flask</td><td><code>request.args</code></td><td><code>request.form</code></td></tr>
+  </table>
+
+  <p>
+    <strong>Attenzione:</strong> POST non significa "sicuro". Senza HTTPS i dati
+    viaggiano comunque in chiaro sulla rete, sono solo meno esposti a occhi indiscreti.
+  </p>
+
+  <h2>Provalo tu</h2>
+  <p>
+    Compila entrambi i form con gli stessi dati e confronta la pagina di risultato,
+    in particolare l'URL mostrato.
+  </p>
+
+  <div class="box">
+    <h3>Form con GET</h3>
+    <form action="/risultato_get" method="get">
+      Nome: <input type="text" name="nome"><br><br>
+      Password: <input type="password" name="password"><br><br>
+      <button type="submit">Invia (GET)</button>
+    </form>
+  </div>
+
+  <div class="box">
+    <h3>Form con POST</h3>
+    <form action="/risultato_post" method="post">
+      Nome: <input type="text" name="nome"><br><br>
+      Password: <input type="password" name="password"><br><br>
+      <button type="submit">Invia (POST)</button>
+    </form>
+  </div>
+
+</body>
+</html>
